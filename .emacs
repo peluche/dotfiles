@@ -67,6 +67,11 @@
 				   #'copilot-previous-completion))
 	     :init (global-copilot-mode))
 
+;; restore window config
+(use-package winner
+             :config (winner-mode))
+
+
 ;; theme
 ;; -----
 ;; pieces stolen from `modus-vivendi-tainted`
@@ -84,9 +89,10 @@
 (setq visible-bell t)
 (setq-default show-trailing-whitespace t)
 (setq-default indent-tabs-mode nil)     ; use spaces instead of tabs
-(setq winder-mode t)                    ; enable undo of window changes
+(require 'em-alias)
 (setq eshell-command-aliases-list
       (append (list (eshell/alias "fg" "winner-undo"))))
+
 
 ;; keybinds
 ;; --------
